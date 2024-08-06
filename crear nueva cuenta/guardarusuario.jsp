@@ -12,53 +12,45 @@
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
     String confirmar_contrasena = request.getParameter("confirmar_contraseña_usuarios");
-
-    // Verificar que todos los campos están llenos
-    if (password == null || password.isEmpty() ||
-        confirmar_contrasena == null || confirmar_contrasena.isEmpty()) {
-        out.println("<h2>Todos los campos deben ser llenados.</h2>");
-    } else if (!password.equals(confirmar_contrasena)) {
-        // Validar la coincidencia de contraseñas
-        out.println("<h2>Las contraseñas no coinciden. Por favor, intente nuevamente.</h2>");
-    } else {
-        // Definir las credenciales de la base de datos
-        String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
-        String user = "root";
-        String dbpassword = ""; // Cambia esto si tienes una contraseña para la base de datos
+    
+    // Definir las credenciales de la base de datos
+    String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
+    String user = "root";
+    String dbpassword = ""; // Cambia esto si tienes una contraseña para la base de datos
+    
+    // Establecer la conexión con la base de datos
+    try {
+        // Cargar el controlador JDBC
+        Class.forName("com.mysql.cj.jdbc.Driver");
         
         // Establecer la conexión con la base de datos
-        try {
-            // Cargar el controlador JDBC
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
-            // Establecer la conexión con la base de datos
-            Connection con = DriverManager.getConnection(url, user, dbpassword);
-            
-            // Preparar la consulta SQL para insertar el nuevo usuario
-            String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, nombre);
-            pstmt.setString(2, apellidos);
-            pstmt.setString(3, email);
-            pstmt.setString(4, password); // Solo almacenas la contraseña
-            pstmt.setString(5, direccion);
-            pstmt.setString(6, telefono);
-            pstmt.setString(7, descripcion);
+        Connection con = DriverManager.getConnection(url, user, dbpassword);
+        
+        // Preparar la consulta SQL para insertar el nuevo usuario
+        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, confirmar_contraseña_usuarios) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstmt = con.prepareStatement(query);
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, apellidos);
+        pstmt.setString(3, email);
+        pstmt.setString(4, password); 
+        pstmt.setString(5, direccion); 
+        pstmt.setString(6, telefono); 
+        pstmt.setString(7, descripcion); 
+        pstmt.setString(8, confirmar_contrasena); 
 
-            // Ejecutar la consulta
-            int rows = pstmt.executeUpdate();
-            
-            // Verificar si se agregó el usuario correctamente
-            if (rows > 0) {
-                response.sendRedirect("../ingresar/ingresar.html");
-            } else {
-                response.sendRedirect("register.jsp");
-            }
-            
-            // Cerrar la conexión
-            con.close();
-        } catch (Exception e) {
-            out.println("<h2>Error al conectar con la base de datos: " + e.getMessage() + "</h2>");
+        // Ejecutar la consulta
+        int rows = pstmt.executeUpdate();
+        
+        // Verificar si se agregó el usuario correctamente
+        if (rows > 0) {
+            response.sendRedirect("../ingresar/ingresar.html");
+        } else {
+            response.sendRedirect("register.jsp");
         }
+        
+        // Cerrar la conexión
+        con.close();
+    } catch (Exception e) {
+        out.println("<h2>Error al conectar con la base de datos: " + e.getMessage() + "</h2>");
     }
 %>
