@@ -1,8 +1,7 @@
 import correoelectronico from "../modulos/modulo_correo.js";
 
 const is_valid = (event, form) => {
-  event.preventDefault(); // Evita el envío automático del formulario
-  const elementos = document.querySelectorAll('form [required]');
+  const elementos = document.querySelectorAll(form);
   let todosLlenos = true;
 
   elementos.forEach(elemento => {
