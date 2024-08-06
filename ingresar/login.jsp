@@ -8,7 +8,7 @@
     String password = request.getParameter("password");
 
     // Establecer la conexión con la base de datos (cambiar las credenciales según tu configuración)
-    String url = "jdbc:mysql://localhost:3306/proyectodarlyhernandez";
+    String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
     String dbUsername = "root";
     String dbPassword = "";
 
