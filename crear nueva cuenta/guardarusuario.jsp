@@ -11,6 +11,8 @@
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
+
+    System.out.println(password);
     
     // Definir las credenciales de la base de datos
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
