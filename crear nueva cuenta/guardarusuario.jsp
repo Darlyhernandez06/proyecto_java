@@ -1,8 +1,12 @@
+<%@ page import="java.util.logging.Logger" %>
+<%@ page import="java.util.logging.Level" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*,java.util.*,javax.servlet.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <%
+    Logger logger = Logger.getLogger("MyLogger");
+
     // Obtener los parámetros del formulario
     String nombre = request.getParameter("nombre_usuarios");
     String apellidos = request.getParameter("apellido_usuarios");
@@ -14,9 +18,11 @@
 
     // Verifica que la contraseña no sea null
     if (password == null) {
-        System.out.println("Contraseña es null"); // Imprime en la consola del servidor
+        logger.log(Level.SEVERE, "Contraseña es null");
+        out.println("<h2>Contraseña es null</h2>");
     } else {
-        System.out.println("Contraseña: " + password); // Imprime en la consola del servidor
+        logger.log(Level.INFO, "Contraseña: " + password);
+        out.println("<h2>Contraseña: " + password + "</h2>");
     }
     
     // Definir las credenciales de la base de datos
@@ -56,6 +62,7 @@
         // Cerrar la conexión
         con.close();
     } catch (Exception e) {
+        logger.log(Level.SEVERE, "Error al conectar con la base de datos", e);
         out.println("<h2>Error al conectar con la base de datos: " + e.getMessage() + "</h2>");
     }
 %>
