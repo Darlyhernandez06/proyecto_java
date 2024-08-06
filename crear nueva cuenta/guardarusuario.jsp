@@ -14,9 +14,9 @@
 
     // Verifica que la contraseña no sea null
     if (password == null) {
-        out.println("<h2>Contraseña es null</h2>");
+        System.out.println("Contraseña es null"); // Imprime en la consola del servidor
     } else {
-        out.println("<h2>Contraseña: " + password + "</h2>"); // Cambiado de 'contraseña' a 'password'
+        System.out.println("Contraseña: " + password); // Imprime en la consola del servidor
     }
     
     // Definir las credenciales de la base de datos
