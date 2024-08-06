@@ -17,7 +17,7 @@
         Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
 
         // Consulta SQL para verificar las credenciales del usuario
-        String query = "SELECT * FROM usuarios WHERE correo=? AND clave=?";
+        String query = "SELECT * FROM tb_usuarios WHERE correo=? AND clave=?";
         PreparedStatement pst = con.prepareStatement(query);
         pst.setString(1, username);
         pst.setString(2, password);
