@@ -8,7 +8,6 @@
     String apellidos = request.getParameter("apellido_usuarios");
     String email = request.getParameter("correo_elec_usuarios");
     String password = request.getParameter("contraseña_usuarios");
-    System.out.println("Contraseña: " + password); // Línea de código agregada
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
