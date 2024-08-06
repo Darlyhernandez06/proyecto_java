@@ -7,7 +7,7 @@
     String nombre = request.getParameter("nombre_usuarios");
     String apellidos = request.getParameter("apellido_usuarios");
     String email = request.getParameter("correo_elec_usuarios");
-    String password = request.getParameter("contraseña_usuarios");
+    String password = request.getParameter("contrasena_usuarios");
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
@@ -26,7 +26,7 @@
         Connection con = DriverManager.getConnection(url, user, dbpassword);
         
         // Preparar la consulta SQL para insertar el nuevo usuario
-        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contrasena_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios) VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(query);
         pstmt.setString(1, nombre);
         pstmt.setString(2, apellidos);
