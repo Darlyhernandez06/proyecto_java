@@ -11,7 +11,7 @@
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
-    String confirmar_contrasena = request.getParameter("contraseña_confrimacion");
+    String confirmar_contrasena = request.getParameter("confirmar_contraseña_usuarios");
     
     // Definir las credenciales de la base de datos
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
@@ -27,7 +27,7 @@
         Connection con = DriverManager.getConnection(url, user, dbpassword);
         
         // Preparar la consulta SQL para insertar el nuevo usuario
-        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, contraseña_confrimacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, confirmar_contraseña_usuarios) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(query);
         pstmt.setString(1, nombre);
         pstmt.setString(2, apellidos);
