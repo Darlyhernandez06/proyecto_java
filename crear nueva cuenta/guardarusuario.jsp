@@ -26,7 +26,7 @@
         Connection con = DriverManager.getConnection(url, user, dbpassword);
         
         // Preparar la consulta SQL para insertar el nuevo usuario
-        String query = "INSERT INTO usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, contraseña_confrimacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, contraseña_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, contraseña_confrimacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(query);
         pstmt.setString(1, nombre);
         pstmt.setString(2, apellidos);
