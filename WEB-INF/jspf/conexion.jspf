@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%-- any content can be specified here e.g.: --%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<sql:setDataSource var="proyecto_base_de_datos_darly_hernandez"
+<sql:setDataSource let="proyecto_base_de_datos_darly_hernandez"
    driver="com.mysql.jdbc.Driver"
-    url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez"
+   url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez"
    user="root"
    password="123456"  />
 
