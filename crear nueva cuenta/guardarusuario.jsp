@@ -12,7 +12,8 @@
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
 
-    System.out.println(password);
+    // Imprimir el valor de la contraseña en la página web para depuración
+    out.println("<p>Contraseña recibida: " + (password != null ? password : "null") + "</p>");
     
     // Definir las credenciales de la base de datos
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
@@ -51,6 +52,7 @@
         // Cerrar la conexión
         con.close();
     } catch (Exception e) {
+        // Imprimir el error en la página web para depuración
         out.println("<h2>Error al conectar con la base de datos: " + e.getMessage() + "</h2>");
     }
 %>
