@@ -10,7 +10,7 @@
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
-    String confirmar_contraseña = request.getParameter("contraseña_confirmacion");
+    String confirmar_contrasena = request.getParameter("contraseña_confirmacion");
     
     // Definir las credenciales de la base de datos
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
@@ -32,7 +32,7 @@
         pstmt.setString(5, direccion); 
         pstmt.setString(6, telefono); 
         pstmt.setString(7, descripcion); 
-        pstmt.setString(8, confirmar_contraseña); 
+        pstmt.setString(8, confirmar_contrasena); 
 
         // Ejecutar la consulta
         int rows = pstmt.executeUpdate();
