@@ -13,7 +13,7 @@
     String descripcion = request.getParameter("descripcion_usuarios");
 
     // Verifica que la contraseña no sea null
-    if (contraseña == null) {
+    if (password == null) {
         out.println("<h2>Contraseña es null</h2>");
     } else {
         out.println("<h2>Contraseña: " + contraseña + "</h2>");
