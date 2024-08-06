@@ -28,9 +28,10 @@
 
 /* Estilos generales del cuerpo del documento */
 body {
-    background: url('../imagenes/fondo crear cuenta.png'); /* Imagen de fondo */
-    background-repeat: no-repeat;             /* No repetir el fondo */
-    font-family: 'MiFuente';                  /* Fuente personalizada */
+    background: url('../imagenes/fondo de crear cuenta.svg'); /* Imagen de fondo */
+    background-repeat: no-repeat;   /* La imagen de fondo no se repite */
+    background-size: cover;         /* La imagen de fondo cubre toda la pantalla */
+    font-family: 'MiFuente';        /* Fuente personalizada */
 }
 
 /*PARTE DEL MENU DE NAVEGACION*/
@@ -42,6 +43,11 @@ body {
     background-color: var(--color-primario); /* Color de fondo */
     padding: 18px 30px;                     /* Padding interno */
     flex-wrap: wrap;                        /* Permitir envolver elementos en pantalla pequeña */
+}
+
+.negrita {
+    font-weight: bold;  /* Define el texto en negrita */
+    font-size: 16px;    /* Establece el tamaño de la fuente a 16 píxeles */
 }
 
 .navbar__logo img {
@@ -132,33 +138,45 @@ body {
     margin: 10px 0; /* Margen superior e inferior */
 }
 
+/* Estilos para el menú desplegable */
+
+li .dropdown-item:hover {
+    background-color: var(--color-primario);  /* Color de fondo al pasar el mouse */
+}
+
+li .dropdown-item:active {
+    background-color: var(--color-resaltado); /* Color de fondo al hacer clic */
+}
+
 /* Estilos para los botones */
-.button {
-    background-color: var(--color-texto-principal); /* Color de fondo */
-    color: var(--color-fondo-principal); /* Color de texto */
-    padding: 10px 20px; /* Padding del botón */
-    border-radius: 10px; /* Radio del borde */
-    text-align: center; /* Alinear texto al centro */
-    font-weight: bold; /* Peso de la fuente */
-    text-decoration: none; /* Sin decoración de texto */
-    margin: 0 10px; /* Margen horizontal */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Cursor apuntador */
-}
 
-.button:hover {
+.btn.btn-light.button.d-flex.align-items-center:hover {
     background-color: var(--color-terciario); /* Color de fondo al pasar el mouse */
+    border: none;                            /* Elimina el borde */
 }
 
-.button:active {
+.btn.btn-light.button.d-flex.align-items-center:active {
     background-color: var(--color-acento-1); /* Color de fondo al hacer clic */
+    border: none;                            /* Elimina el borde */
+}
+
+.arrow {
+    position: absolute; /* Posiciona el elemento de forma absoluta dentro de su contenedor */
+    width: 11px; /* Ancho fija del contenedor */
+    height: 11px; /* Altura fija del contenedor */
+    top: -5.5px; /* Ajusta la posición vertical */
+    left: 32px;  /* Ajusta la posición horizontal */
+    background-color: var(--color-acento-1);
+    transform: rotate(45deg); /* Rota el elemento 45 grados para formar una flecha */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el elemento */
+    z-index: -1; /* Define el índice z del elemento, colocándolo detrás de otros elementos con z-index positivo */
 }
 
 /*PARTE DE LA PRIMER SECCION EL FORMULARIO DE CREAR NUEVA CUENTA*/
 
-.create-account-section {
-    max-width: 50%; /* Ancho máximo */
-    min-height: 50%; /* Altura mínima */
+.crear__cuenta--seccion{
+    max-width: 60%; /* Ancho máximo */
+    min-height: 60%; /* Altura mínima */
     margin: 100px auto; /* Margen superior e inferior automático, centrado horizontalmente */
     background-color: rgba(0, 0, 0, 0.2); /* Color de fondo con transparencia */
     border-radius: 20px; /* Radio del borde */
@@ -169,55 +187,66 @@ body {
     margin-top: 250px; /* Margen superior */
 }
 
-.logo-container {
+.logo__contenedor {
     text-align: center; /* Alinear texto al centro */
     position: relative; /* Posición relativa */
     margin-top: -150px; /* Margen superior negativo */
 }
 
-.title-container {
+.titulo__contenedor {
     text-align: center; /* Alinear texto al centro */
     color: var(--color-acento-2); /* Color del texto */
     font-weight: bold; /* Peso de la fuente */
-    font-size: 35px; /* Tamaño de la fuente */
+    font-size: 60px; /* Tamaño de la fuente */
+    
 }
 
-.subtitle-container {
+.subtitulo__contenedor{
     text-align: center; /* Alinear texto al centro */
     color: var(--color-terciario); /* Color del texto */
     font-weight: bold; /* Peso de la fuente */
-    font-size: 25px; /* Tamaño de la fuente */
+    font-size: 45px; /* Tamaño de la fuente */
     padding: var(--padding); /* Padding */
 }
 
-.description-container {
+.descripcion__contenedor{
     text-align: center; /* Alinear texto al centro */
     color: var(--color-acento-1); /* Color del texto */
     font-weight: bold; /* Peso de la fuente */
-    font-size: 17px; /* Tamaño de la fuente */
-    margin-left: 300px; /* Margen izquierdo */
+    font-size: 13px; /* Tamaño de la fuente */
     margin-top: -20px; /* Margen superior negativo */
 }
 
-.form {
-    padding: var(--padding); /* Padding */
+.formulario__grupo {
+    display: flex; /* Mostrar como flexbox */
+    flex-direction: column; /* Cambiar la dirección de los elementos a columna */
+    justify-content: center; /* Justificar contenido al centro verticalmente */
+    height: 100px; /* Altura específica para el contenedor */
+    margin-bottom: 40px; /* Espacio inferior de 40 píxeles */
 }
 
-label {
-    margin-bottom: 5px; /* Margen inferior */
-    color: var(--color-terciario); /* Color del texto */
-    font-weight: bold; /* Peso de la fuente */
-    margin-left: 20%; /* Margen izquierdo */
+.formulario {
+    /* Estilos del formulario */
+    padding: var(--padding);      /* Espaciado interno definido por la variable --padding */
+    width: auto;                  /* Ancho automático que se ajusta al contenido */
+    display: flex;                /* Utiliza Flexbox para el diseño */
+    justify-content: center;      /* Centra los elementos dentro del formulario horizontalmente */
+}
+
+.form__label {
+    display: flex; /* Mostrar como flexbox */
+    justify-content: flex-start; /* Justificar contenido al inicio horizontalmente */
+    align-items: center; /* Alinear ítems al centro verticalmente */
+    margin-top: 70px; /* Margen superior de 70 píxeles */
+    margin-bottom: 5px; /* Margen inferior de 5 píxeles */
+    color: var(--color-terciario); /* Color terciario definido por variable */
+    font-weight: bold; /* Texto en negrita */
 }
 
 /* Estilos para inputs y botones */
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
+.form__input {
     display: block; /* Bloque de visualización */
-    width: calc(100% - 40px); /* Ancho calculado */
-    max-width: 500px; /* Ancho máximo */
+    width: 100%; /* Ancho calculado con margen */
     min-height: 50px; /* Altura mínima */
     padding: var(--paddin-button); /* Padding */
     border: 1px solid #ccc; /* Borde */
@@ -226,45 +255,37 @@ input[type="password"] {
     margin-bottom: 40px; /* Margen inferior */
 }
 
-input[type="text"]::placeholder,
-input[type="tel"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder,
-textarea::placeholder {
+.form__input::placeholder {
     color: rgba(77, 167, 104, 0.5); /* Color del placeholder */
     font-weight: bold; /* Peso de la fuente */
     padding: var(--paddin-button); /* Padding */
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+.form__input:focus {
     outline: none; /* Sin contorno */
 }
 
-input:hover {
+.form__input:hover {
     border: 2px solid var(--color-acento-1); /* Borde al pasar el mouse */
 }
 
-input:active {
+.form__input:active {
     border: 2px solid var(--color-secundario); /* Borde al hacer clic */
 }
 
 textarea {
     display: block; /* Bloque de visualización */
-    width: calc(100% - 40px); /* Ancho calculado */
-    max-width: 500px; /* Ancho máximo */
-    height: 200px; /* Altura */
+    width: 600px; /* Ancho calculado con margen */
+    min-height: 60px; /* Altura mínima */
     padding: var(--paddin-button); /* Padding */
     border: 1px solid #ccc; /* Borde */
     margin: 10px auto; /* Margen automático */
-    margin-bottom: 40px; /* Margen inferior */
+    margin-bottom: 80px; /* Margen inferior */
     outline: none; /* Sin contorno */
 }
 
 textarea {
-    min-height: 100px; /* Altura mínima para textarea */
+    min-height: 150px; /* Altura mínima para textarea */
 }
 
 textarea:hover {
@@ -275,8 +296,14 @@ textarea:active {
     border: 2px solid var(--color-secundario); /* Borde al hacer clic */
 }
 
+textarea::placeholder {
+    color: rgba(77, 167, 104, 0.5); /* Color del placeholder */
+    font-weight: bold; /* Peso de la fuente */
+    padding: var(--paddin-button); /* Padding */
+}
+
 /* Contenedor para botones de formulario */
-.form__button-container {
+.form__boton--contenedor {
     display: flex; /* Contenedor flexible */
     justify-content: space-around; /* Justificar espacio alrededor */
     align-items: center; /* Alinear elementos al centro */
@@ -284,9 +311,8 @@ textarea:active {
 }
 
 /* Estilos para el botón de enviar 01 */
-.button-button--submit01 {
-    width: calc(30% - 40px); /* Ancho calculado */
-    max-width: 500px; /* Ancho máximo */
+.boton__boton--submit01 {
+    width: 250px; /* Ancho calculado con margen */
     min-height: 50px; /* Altura mínima */
     color: var(--color-texto-principal); /* Color de texto */
     border: 3px solid var(--color-texto-principal); /* Borde */
@@ -297,49 +323,52 @@ textarea:active {
     padding: 12px 20px; /* Padding */
     text-align: center; /* Alinear texto al centro */
     background: none; /* Fondo transparente */
+    margin-top: 80px; /* Añade un margen superior de 80 píxeles */
 }
 
-.button-button--submit01:hover {
+.boton__boton--submit01:hover {
     border: 3px solid var(--color-terciario); /* Borde al pasar el mouse */
     color: var(--color-terciario); /* Color al pasar el mouse */
 }
 
-.button-button--submit01:active {
+.boton__boton--submit01:active {
     border: 3px solid var(--color-acento-1); /* Borde al hacer clic */
     color: var(--color-acento-1); /* Color al hacer clic */
 }
 
 /* Estilos para el botón de enviar */
-.button-button--submit {
-    width: calc(30% - 40px); /* Ancho calculado */
-    max-width: 500px; /* Ancho máximo */
+.boton__boton--submit {
+    width: 250px; /* Ancho calculado con margen */
     min-height: 50px; /* Altura mínima */
     background-color: var(--color-texto-principal); /* Color de fondo */
     color: rgba(77, 167, 104, 0.5); /* Color de texto */
-    border: 1px solid #ccc; /* Borde */
+    border: 3px solid var(--color-texto-principal); /* Borde */
     border-radius: 15px; /* Radio del borde */
     font-weight: bold; /* Peso de la fuente */
     font-size: 16px; /* Tamaño de la fuente */
     cursor: pointer; /* Cursor apuntador */
     padding: 12px 20px; /* Padding */
     text-align: center; /* Alinear texto al centro */
+    margin-top: 80px; /* Añade un margen superior de 80 píxeles */
 }
 
-.button-button--submit:hover {
+.boton__boton--submit:hover {
     background-image: linear-gradient(to right, #99E89D, #4DA768); /* Gradiente al pasar el mouse */
     color: rgba(255, 255, 255, 0.5); /* Color de texto al pasar el mouse */
+    border: none; /* Quitar el borde */
 }
 
-.button-button--submit:active {
+.boton__boton--submit:active {
     background-image: linear-gradient(to right, #3BC975, #006633); /* Gradiente al hacer clic */
     color: rgba(255, 255, 255, 0.5); /* Color de texto al hacer clic */
+    border: none; /* Quitar el borde */
 }
 
-.confirmar-section__input-wrapper {
+.confirmar__seccion--input {
     position: relative; /* Posición relativa */
 }
 
-.confirmar-section__icon-button {
+.confirmar__seccion--iconboton{
     position: absolute; /* Posición absoluta */
     top: 50%; /* Desde arriba el 50% */
     right: 10px; /* Desde la derecha 10px */
@@ -348,16 +377,17 @@ textarea:active {
     border: none; /* Sin borde */
 }
 
-.confirmar-section__icon {
-    width: 20px; /* Ancho del ícono */
-    height: 20px; /* Altura del ícono */
-    margin-left: -358px; /* Margen izquierdo negativo */
+.confirmar__seccion--icon {
+    /* Estilos para los iconos dentro de la sección de confirmación */
+    width: 50px; /* Ancho del icono */
+    height: 25px; /* Altura del icono */
+    margin-top: -35px; /* Aplica un margen negativo de 35px en la parte superior del icono */
 }
 
 /*PARTE DE LA SEGUNDA SECCION LA INFROMACION DE MEGAPAQUETES*/
 
-.additional-info {
-    background-color: #99E89D; /* Color de fondo */
+.adicional__informacion {
+    background-color: var(--color-primario); /* Color de fondo */
     padding: 20px; /* Padding */
     display: flex; /* Contenedor flexible */
     justify-content: center; /* Justificar contenido horizontalmente */
@@ -366,7 +396,7 @@ textarea:active {
 }
 
 /* Estilos para el contenido principal */
-.additional-info__main {
+.adicional__informacion--principal {
     display: grid; /* Contenedor de cuadrícula */
     grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
     grid-auto-rows: minmax(100px, auto); /* Altura mínima 100px, tamaño automático */
@@ -374,59 +404,59 @@ textarea:active {
     padding: 20px; /* Padding */
 }
 
-.additional-info__secondary {
+.adicional__informacion--secundario {
     display: flex; /* Contenedor flexible */
     align-items: center; /* Alinear elementos al centro verticalmente */
     gap: 15px; /* Espacio entre elementos */
 }
 
-.additional-info__title {
+.adicional__informacion--titulo {
     flex: 1; /* Flexibilidad */
 }
 
-.additional-info__subtitle {
+.adicional__informacion--subtitulo {
     font-size: 14px; /* Tamaño de la fuente */
     color: var(--color-fondo-principal); /* Color de texto */
 }
 
-.additional-info__logo img {
+.adicional__informacion--logo img {
     max-width: 60px; /* Ancho máximo */
     height: auto; /* Altura automática */
 }
 
-.additional-info__image img {
+.adicional__informacion--image img {
     max-width: 100%; /* Ancho máximo */
     display: block; /* Bloque de visualización */
     border-radius: 10px; /* Radio del borde */
 }
 
-.additional-info__image {
+.adicional__informacion--image {
     grid-column: 1; /* Columna 1 */
     grid-row: 2; /* Fila 2 */
 }
 
-.additional-info__nav-list {
+.adicional__informacion--lista {
     grid-column: 3; /* Columna 3 */
     font-weight: bold; /* Peso de la fuente */
 }
 
-.additional-info__store-info {
+.adicional__informacion--info {
     grid-column: 3; /* Columna 3 */
     margin-top: 30px; /* Margen superior */
 }
 
-.additional-info__nav-item {
+.adicional__informacion--item {
     margin-bottom: 10px; /* Margen inferior */
     color: var(--color-fondo-principal); /* Color de texto */
 }
 
-.additional-info__heading {
+.adicional__informacion--infotexto {
     color: var(--color-fondo-principal); /* Color de texto */
     font-size: 18px; /* Tamaño de la fuente */
     margin-bottom: 10px; /* Margen inferior */
 }
 
-.additional-info__contact {
+.adicional__informacion--contacto {
     display: flex; /* Contenedor flexible */
     flex-direction: column; /* Dirección de columna */
     align-items: start; /* Alinear elementos a la izquierda */
@@ -434,18 +464,18 @@ textarea:active {
     font-weight: bold; /* Peso de la fuente */
 }
 
-.additional-info__contact-item {
+.adicional__informacion--contactoitem {
     color: var(--color-fondo-principal); /* Color de texto */
     margin-bottom: 5px; /* Margen inferior */
     display: flex; /* Contenedor flexible */
     align-items: center; /* Alinear elementos al centro */
 }
 
-.additional-info__contact-item img {
+.adicional__informacion--contactoitem img {
     margin-right: 10px; /* Margen derecho */
 }
 
-.additional-info__text_1 {
+.adicional__informacion--compromisotexto1 {
     background-color: var(--color-terciario); /* Color de fondo */
     width: 73%; /* Ancho */
     border-radius: 10px; /* Radio del borde */
@@ -456,28 +486,28 @@ textarea:active {
     font-size: 17px; /* Tamaño de la fuente */
 }
 
-.additional-info__social {
+.adicional__informacion--social {
     display: flex; /* Contenedor flexible */
     flex-direction: column; /* Dirección de columna */
 }
 
-.additional-info__heading {
+.adicional__informacion--compromisotexto {
     color: var(--color-fondo-principal); /* Color de texto */
     font-size: 18px; /* Tamaño de la fuente */
 }
 
-.additional-info__text {
+.adicional__informacion--socialtexto{
     color: var(--color-fondo-principal); /* Color de texto */
     font-size: 14px; /* Tamaño de la fuente */
 }
 
-.additional-info__social-icons {
+.adicional__informacion--socialicons {
     display: flex; /* Contenedor flexible */
     flex-direction: row; /* Dirección de fila */
     margin-left: -13px; /* Margen izquierdo negativo */
 }
 
-.additional-info__social-icon {
+.adicional__informacion--socialicon {
     width: 70px; /* Ancho */
     height: auto; /* Altura automática */
     cursor: pointer; /* Cursor apuntador */
@@ -487,13 +517,166 @@ textarea:active {
 /* ESTILOS PARA EL PIE DE PAGINA*/
 .footer {
     height: 140px; /* Altura */
-    background: url('../imagenes/footer.png') no-repeat; /* Imagen de fondo */
+    background: url('../imagenes/footer.svg'); /* Imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
     display: flex; /* Contenedor flexible */
     justify-content: center; /* Justificar contenido horizontalmente */
     align-items: center; /* Alinear elementos al centro verticalmente */
 }
 
 .footer__parrafo {
+    color: var(--color-fondo-principal); /* Color de texto */
     text-align: center; /* Alinear texto al centro */
     font-weight: bold; /* Peso de la fuente */
+    font-size: 15px; /* Tamaño de la fuente */
+}
+
+.error {
+    border: solid 2px #bd0003;
+}
+
+.correcto {
+    border: solid 2px #5ccb5f;
+}
+
+/*RESPONSIVE*/
+
+/* Media query para portátiles */
+@media (min-width: 769px) and (max-width: 1300px) {
+    .adicional__informacion--compromisotexto1{
+        width: 350px; /* Ancho */
+    }
+}
+
+/*RESPONSIVE*/
+
+/* Media query para tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .esconder {
+        display: none; /* Ocultar elemento con display none */
+        width: 50%; /* Ancho del 50% */
+    }
+    .botones {
+        justify-content: center; /* Justificar contenido al centro horizontalmente */
+    }
+    .titulo__contenedor {
+        font-size: 60px; /* Tamaño de fuente de 60 píxeles */
+        margin-top: 20px; /* Margen superior de 20 píxeles */
+    }
+    .subtitulo__contenedor {
+        font-size: 45px; /* Tamaño de fuente de 45 píxeles */
+        margin-top: -20px; /* Margen superior negativo de 20 píxeles */
+    }
+    .crear__cuenta--seccion {
+        /* Estilos del contenedor principal de bienvenida */
+        max-width: 90%; /* Ancho máximo del contenedor del 90% */
+        border-radius: 20px; /* Radio del borde de 20 píxeles */
+        margin-top: 70px; /* Margen superior de 70 píxeles */
+    }
+    .logo__contenedor {
+        margin-top: -50px; /* Margen superior negativo de 50 píxeles */
+    }
+    .logo__contenedor > img {
+        width: 100px; /* Ancho de la imagen de 100 píxeles */
+        margin-top: -30px; /* Margen superior negativo de 30 píxeles */
+    }
+    .descripcion__contenedor {
+        /* Estilos de la descripción dentro del contenedor */
+        width: 100%; /* Ancho del 100% */
+        margin-left: 0px; /* Margen izquierdo de 0 píxeles */
+    }
+    .adicional__informacion--principal {
+        display: flex; /* Contenedor de cuadrícula con flexbox */
+        align-items: center; /* Alinear elementos al centro verticalmente */
+        justify-content: center; /* Justificar contenido al centro horizontalmente */
+        flex-wrap: wrap; /* Envolver elementos en múltiples líneas */
+        gap: 20px; /* Espacio entre columnas y filas de 20 píxeles */
+        padding: 20px; /* Padding de 20 píxeles */
+        text-align: center; /* Alinear texto al centro */
+    }
+    .adicional__informacion--compromisotexto1 {
+        width: 100%; /* Ancho del 100% */
+        text-align: center; /* Alinear texto al centro */
+    }
+    .footer{
+        height: 100px; /* Altura fija de 100px para el footer */
+    }
+}
+
+
+/*RESPONSIVE*/
+
+/* Media query para pantallas pequeñas como móviles */
+@media (min-width: 300px) and (max-width: 767px) {
+   
+    .form__input{
+        margin-left: -20px;
+        width: 120%;
+    }
+    .formulario {
+        flex-direction: column; /* Cambia a dirección de columna para móviles */
+    }
+    .formulario__grupo {
+        width: auto; /* Ancho automático para ajustar al contenido */
+        min-width: auto; /* Ancho mínimo automático */
+        min-height: 40px; /* Altura mínima reducida para móviles */
+    }
+    .textarea {
+        width: 120%; /* Ancho automático para ajustar al contenido */
+        margin-left: -20px;
+    }
+    .esconder {
+        display: none; /* Ocultar elemento con display none */
+        width: 50%; /* Ancho del 50% */
+    }
+    .botones {
+        justify-content: center; /* Justificar contenido al centro horizontalmente */
+    }
+    .titulo__contenedor {
+        font-size: 35px; /* Tamaño de fuente de 35 píxeles */
+        margin-top: 20px; /* Margen superior de 20 píxeles */
+    }
+    .subtitulo__contenedor {
+        font-size: 30px; /* Tamaño de fuente de 30 píxeles */
+        margin-top: -20px; /* Margen superior negativo de 20 píxeles */
+    }
+    .crear__cuenta--seccion {
+        /* Estilos del contenedor principal */
+        max-width: 90%; /* Ancho máximo del contenedor del 90% */
+        border-radius: 20px; /* Radio del borde de 20 píxeles */
+        margin-top: 70px; /* Margen superior de 70 píxeles */
+    }
+    .logo__contenedor {
+        margin-top: -50px; /* Margen superior negativo de 50 píxeles */
+    }
+    .logo__contenedor > img {
+        width: 100px; /* Ancho de la imagen de 100 píxeles */
+        margin-top: -30px; /* Margen superior negativo de 30 píxeles */
+    }
+    .descripcion__contenedor {
+        width: 100%; /* Ancho del 100% */
+        margin-left: 0px; /* Margen izquierdo de 0 píxeles */
+        font-size: 11px; /* Tamaño de fuente de 10 píxeles */
+    }
+    .adicional__informacion--principal {
+        display: flex; /* Contenedor de cuadrícula con flexbox */
+        align-items: center; /* Alinear elementos al centro verticalmente */
+        justify-content: center; /* Justificar contenido al centro horizontalmente */
+        flex-wrap: wrap; /* Envolver elementos en múltiples líneas */
+        gap: 20px; /* Espacio entre columnas y filas de 20 píxeles */
+        padding: 20px; /* Padding de 20 píxeles */
+        text-align: center; /* Alinear texto al centro */
+    }
+    .adicional__informacion--compromisotexto1 {
+        width: 100%; /* Ancho del 100% */
+        text-align: center; /* Alinear texto al centro */
+    }
+    .footer{
+        height: 50px; /* Altura fija de 50px para el footer */
+    }
+    .confirmar__seccion--iconboton {
+        right: -25px; /* Desplaza el botón 25px hacia la izquierda desde su posición original a la derecha */
+    }
 }
