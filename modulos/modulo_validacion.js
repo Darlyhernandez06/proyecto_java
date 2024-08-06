@@ -26,7 +26,7 @@ const is_valid = (event, form) => {
     
     else {
     // Validación general para otros campos de entrada
-    if (elemento.value.trim() === "") {
+    if (elemento.value === "") {
       elemento.classList.add("error");
       todosLlenos = false;
     } else {
