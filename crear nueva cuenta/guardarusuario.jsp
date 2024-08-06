@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*,java.util.*,javax.servlet.*" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <%
     // Obtener los parámetros del formulario
