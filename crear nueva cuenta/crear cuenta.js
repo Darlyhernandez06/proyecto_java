@@ -23,13 +23,9 @@ const descripcion = document.querySelector('#descripcion_usuarios');
 
 // Se añade un listener al formulario que llama a la función validar cuando se intenta enviar el formulario.
 $formulario.addEventListener("submit", (event) => {
-    console.log("Intentando enviar formulario...");
-    
-    if (!is_valid(event, "form [required]")) { // Asegúrate de que el selector sea el correcto
+    // Llama a la función is_valid y pasa el evento y el selector del formulario
+    if (!is_valid(event,  "form [required]")) { // Asegúrate de que el selector sea el correcto
       event.preventDefault(); // Prevenir el envío si la validación falla
-      alert("Validación fallida");
-    } else {
-      alert("Validación exitosa");
     }
 });
 
