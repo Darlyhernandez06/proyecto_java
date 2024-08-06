@@ -16,7 +16,7 @@
     if (password == null) {
         out.println("<h2>Contraseña es null</h2>");
     } else {
-        out.println("<h2>Contraseña: " + contraseña + "</h2>");
+        out.println("<h2>Contraseña: " + password + "</h2>"); // Cambiado de 'contraseña' a 'password'
     }
     
     // Definir las credenciales de la base de datos
