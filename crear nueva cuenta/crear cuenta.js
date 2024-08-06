@@ -22,7 +22,15 @@ const confirmarContraseña = document.querySelector('#confirmar_contraseña_usua
 const descripcion = document.querySelector('#descripcion_usuarios');
 
 // Se añade un listener al formulario que llama a la función validar cuando se intenta enviar el formulario.
-$formulario.addEventListener("submit",  is_valid);
+$formulario.addEventListener("submit", (event) => {
+    console.log("Formulario enviado");
+    if (!is_valid()) {
+        event.preventDefault(); // Prevenir el envío si la validación falla
+        console.log("Validación fallida");
+    } else {
+        console.log("Validación exitosa");
+    }
+});
 
 // Se añade un listener para el evento keyup en cada uno de los campos. Cuando se suelta una tecla, se llama a la función remover para verificar el estado del campo.
 [nombres, apellidos, correo, telefono, direccion, contraseña, confirmarContraseña, descripcion].forEach(input => {
