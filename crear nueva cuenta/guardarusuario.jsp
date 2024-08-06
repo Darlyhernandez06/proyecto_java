@@ -11,6 +11,13 @@
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
+
+    // Verifica que la contraseña no sea null
+    if (contraseña == null) {
+        out.println("<h2>Contraseña es null</h2>");
+    } else {
+        out.println("<h2>Contraseña: " + contraseña + "</h2>");
+    }
     
     // Definir las credenciales de la base de datos
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
