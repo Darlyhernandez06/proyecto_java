@@ -5,6 +5,8 @@ const is_valid = (event, form) => {
   const elementos = document.querySelectorAll(form);
   let todosLlenos = true;
 
+  console.log("Validando formulario...");
+
   elementos.forEach(elemento => {
     if (elemento.type === "email") {
       // Verifica si el tipo del elemento es 'email'.
@@ -26,7 +28,7 @@ const is_valid = (event, form) => {
     
     else {
     // Validación general para otros campos de entrada
-    if (elemento.value === "") {
+    if (elemento.value.trim() === "") {
       elemento.classList.add("error");
       todosLlenos = false;
     } else {
