@@ -577,11 +577,6 @@ li .dropdown-item:active {
     font-size: 15px; /* Tamaño de la fuente */
 }
 
-.error-message {
-    color: red;
-    display: none;
-}
-
 .error {
     border: solid 2px #bd0003;
 }
