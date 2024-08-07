@@ -6,7 +6,7 @@
 <%
     // Obtener los parámetros del formulario
     String correo = request.getParameter("correo_elec_usuarios");
-    String password = request.getParameter("contraseña_usuarios");
+    String password = request.getParameter("password_usuarios");
 
     // Establecer la conexión con la base de datos (cambiar las credenciales según tu configuración)
     String url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez";
@@ -21,7 +21,7 @@
         Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
 
         // Consulta SQL para verificar las credenciales del usuario
-        String query = "SELECT * FROM tb_usuarios WHERE correo_elec_usuarios=? AND contraseña_usuarios=?";
+        String query = "SELECT * FROM tb_usuarios WHERE correo_elec_usuarios=? AND password_usuarios=?";
         PreparedStatement pst = con.prepareStatement(query);
         pst.setString(1, correo);
         pst.setString(2, password);

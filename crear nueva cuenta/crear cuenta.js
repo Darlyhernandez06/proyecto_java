@@ -17,19 +17,20 @@ const apellidos = document.querySelector('#apellido_usuarios');
 const correo = document.querySelector('#correo_elec_usuarios');
 const telefono = document.querySelector('#telefono_usuarios');
 const direccion = document.querySelector('#dirrec_usuarios');
-const contraseña = document.querySelector('#contraseña_usuarios');
-const confirmarContraseña = document.querySelector('#confirmar_contraseña_usuarios');
+const contraseña = document.querySelector('#password_usuarios');
+const confirmarContraseña = document.querySelector('#password_confirmacion');
 const descripcion = document.querySelector('#descripcion_usuarios');
 
 // Se añade un listener al formulario que llama a la función validar cuando se intenta enviar el formulario.
-$formulario.addEventListener("submit", (event) => {
+/*$formulario.addEventListener("submit", (event) => {
     if (!is_valid(event, "form [required]"))  {
         event.preventDefault(); // Prevenir el envío si la validación falla
         alert("Validación fallida");
     } else {
         alert("Validación exitosa");
     }
-});
+});*/
+
 
 // Se añade un listener para el evento keyup en cada uno de los campos. Cuando se suelta una tecla, se llama a la función remover para verificar el estado del campo.
 [nombres, apellidos, correo, telefono, direccion, contraseña, confirmarContraseña, descripcion].forEach(input => {
@@ -39,7 +40,7 @@ $formulario.addEventListener("submit", (event) => {
 });
 
 // Confirmación de contraseña
-confirmarContraseña.addEventListener("blur", () => {
+$formulario.addEventListener("submit", () => {
     // Verifica que las contraseñas ingresadas coincidan
     if (contraseña.value === confirmarContraseña.value) {
         // Elimina la clase error si las contraseñas coinciden
@@ -49,6 +50,7 @@ confirmarContraseña.addEventListener("blur", () => {
         contraseña.classList.add("correcto");
         confirmarContraseña.classList.add("correcto");
     } else {
+        event.preventDefault();
         // Muestra una alerta si las contraseñas no coinciden
         alert('Las contraseñas no coinciden');
         // Agrega la clase error a los campos de contraseña
@@ -58,6 +60,8 @@ confirmarContraseña.addEventListener("blur", () => {
         contraseña.classList.remove("correcto");
         confirmarContraseña.classList.remove("correcto");
     }
+
+   
 });
 
 // Validaciones específicas
