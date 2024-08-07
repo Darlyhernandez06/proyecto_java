@@ -1,9 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%-- Esta línea define las directivas de la página JSP. Especifica el lenguaje de la página (Java), 
+   el tipo de contenido como HTML con codificación de caracteres UTF-8, 
+   y la codificación de la página como UTF-8. 
+--%>
+
 <%-- any content can be specified here e.g.: --%>
+
+<%-- Esta línea es un comentario en JSP. El contenido dentro de los delimitadores <%-- 
+   y --%> no se muestra en la salida del cliente. Puedes usarlo para notas o información adicional. 
+--%>
+
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+
+<%-- Esta línea importa la biblioteca de etiquetas JSP JSTL para permitir el uso de etiquetas SQL 
+   en la página JSP. 
+--%>
+
 <sql:setDataSource let="proyecto_base_de_datos_darly_hernandez"
    driver="com.mysql.jdbc.Driver"
-   url = "jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez"
+   url="jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez"
    user="root"
-   password="123456"  />
+   password="123456" />
+
+<%-- Esta etiqueta configura una fuente de datos utilizando JSTL. La fuente de datos se nombra 
+   `proyecto_base_de_datos_darly_hernandez` y se establece con los siguientes parámetros:
+   - `driver`: el controlador JDBC para MySQL.
+   - `url`: la URL de conexión a la base de datos.
+   - `user`: el nombre de usuario para la conexión.
+   - `password`: la contraseña para el usuario. 
+--%>
+
+
 
