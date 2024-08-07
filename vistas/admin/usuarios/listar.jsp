@@ -10,7 +10,7 @@
     <!-- Enlace al archivo CSS para estilos -->
     <link rel="stylesheet" href="listar.css">
     <!-- Favicon para el navegador -->
-    <link rel="icon" type="image/svg" href="../imagenes/logo.svg">
+    <link rel="icon" type="image/svg" href="../web/IMAGENES/logo.svg">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
 </head>
@@ -122,10 +122,13 @@
                 <thead class="thead-light">
                     <tr>
                         <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Fecha registro</th>
+                        <th>Descripcion</th>
+                        <th>Rol</th>
+                        <th>Estado cuenta</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -146,14 +149,12 @@
                 <tr>
                     <td><%= rs.getString("tb_usuarios.nombre_usuarios") %></td>
                     <td><%= rs.getString("tb_usuarios.apellido_usuarios") %></td>
-                    <td><%= rs.getString("tb_usuarios.password_usuarios") %></td>
-                    <td><%= rs.getString("tb_usuarios.password_confirmacion") %></td>
                     <td><%= rs.getString("tb_usuarios.dirrec_usuarios") %></td>
                     <td><%= rs.getString("tb_usuarios.telefono_usuarios") %></td>
                     <td><%= rs.getString("tb_usuarios.fecha_registro_usuarios") %></td>
-                    <td><%= rs.getString("tb_usuarios.estado_cuenta_usuarios") %></td>
                     <td><%= rs.getString("tb_usuarios.descripcion_usuarios") %></td>
-                    <td><%= rs.getString("tb_usuarios.rol") %></td>
+                    <td><%= rs.getString("tb_usuarios.rol_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.estado_cuenta_usuarios") %></td>
                     <td>
                         <a href="FormularioActualizarProyecto.jsp?id=<%= rs.getInt("id_usuario") %>" class="btn btn-primary">Editar</a>
                         <a href="EliminarProyecto.jsp?id=<%= rs.getInt("id_usuario") %>" class="btn btn-danger">Eliminar</a>
