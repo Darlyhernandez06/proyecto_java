@@ -29,7 +29,7 @@
 
         if (rs.next()) {
             // Obtener el rol del usuario usando el nombre correcto de la columna
-            String rol = rs.getString("rol_usuarios"); // Asegúrate de usar el nombre correcto de la columna
+            String rol = rs.getString("rol_usuarios"); 
             
             // Redireccionar a diferentes páginas según el rol del usuario
             if (rol.equals("admin")) {
