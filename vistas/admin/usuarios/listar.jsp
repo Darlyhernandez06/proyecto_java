@@ -133,23 +133,27 @@
                 try {
                     // Establece la conexión con la base de datos
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyectodarlyhernandez", "root", "");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_base_de_datos_darly_hernandez", "root", "");
                     Statement stmt = con.createStatement();
                     
                     // Ejecuta la consulta SQL para obtener los usuarios
-                    String query = "SELECT * FROM usuarios";
+                    String query = "SELECT * FROM tb_usuarios";
                     ResultSet rs = stmt.executeQuery(query);
                     
                     // Itera sobre los resultados y muestra cada usuario en una fila de la tabla
                     while(rs.next()) {
                 %>
                 <tr>
-                    <td><%= rs.getString("usuarios.nombre") %></td>
-                    <td><%= rs.getString("usuarios.correo") %></td>
-                    <td><%= rs.getString("usuarios.telefono") %></td>
-                    <td><%= rs.getString("usuarios.direccion") %></td>
-                    <td><%= rs.getString("usuarios.descripcion") %></td>
-                    <td><%= rs.getString("usuarios.rol") %></td>
+                    <td><%= rs.getString("tb_usuarios.nombre_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.apellido_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.password_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.password_confirmacion") %></td>
+                    <td><%= rs.getString("tb_usuarios.dirrec_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.telefono_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.fecha_registro_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.estado_cuenta_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.descripcion_usuarios") %></td>
+                    <td><%= rs.getString("tb_usuarios.rol") %></td>
                     <td>
                         <a href="FormularioActualizarProyecto.jsp?id=<%= rs.getInt("id_usuario") %>" class="btn btn-primary">Editar</a>
                         <a href="EliminarProyecto.jsp?id=<%= rs.getInt("id_usuario") %>" class="btn btn-danger">Eliminar</a>
