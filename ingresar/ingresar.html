@@ -105,18 +105,16 @@
         </div>
         <!-- Formulario de inicio de sesión -->
         <div class="formulario">
-            <form action="login.jsp" method="POST" class="from__principal">
+            <form action="login.jsp" method="POST" class="from__principal" novalidate>
                 <!-- Campo para el correo electrónico -->
                 <div class="formulario__grupo">
-                    <label class="form__label" for="username">Correo</label>
-                    <input class="form__input" type="email" id="username" name="username" placeholder="Ingresa tu correo" required>
-                    <p class="error-message" id="email-error">Por favor, ingresa un correo válido.</p>
+                    <label class="form__label" for="correo_elec_usuarios">Correo</label>
+                    <input class="form__input" type="email" id="correo_elec_usuarios" name="correo_elec_usuarios" placeholder="Ingresa tu correo" required>
                 </div>
                 <!-- Campo para la contraseña -->
                 <div class="formulario__grupo">
-                    <label class="form__label" for="password">Contraseña</label>
-                    <input class="form__input" type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                    <p class="error-message" id="password-error">La contraseña debe tener al menos 8 caracteres.</p>
+                    <label class="form__label" for="contraseña_usuarios">Contraseña</label>
+                    <input class="form__input" type="password" id="contraseña_usuarios" name="contraseña_usuarios" placeholder="Ingresa tu contraseña" required>
                 </div>
                 <!-- Botón para iniciar seccion -->
                 <div class="form__boton--contendor">
@@ -214,5 +212,6 @@
     <!-- JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <script src="ingresar.js" type="module"> </script>
 </body>
 </html>
