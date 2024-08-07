@@ -129,6 +129,7 @@
                         <th>Descripcion</th>
                         <th>Rol</th>
                         <th>Estado cuenta</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
