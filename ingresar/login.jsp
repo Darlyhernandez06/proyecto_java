@@ -14,19 +14,22 @@
     String dbPassword = "";
 
     try {
-        Class.forName("com.mysql.jdbc.Driver");
+        // Cargar el controlador JDBC
+        Class.forName("com.mysql.cj.jdbc.Driver"); // Usa el controlador actualizado
+
+        // Establecer la conexión con la base de datos
         Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
 
         // Consulta SQL para verificar las credenciales del usuario
         String query = "SELECT * FROM tb_usuarios WHERE correo_elec_usuarios=? AND contraseña_usuarios=?";
         PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1, correo );
+        pst.setString(1, correo);
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();
 
         if (rs.next()) {
-            // Obtener el rol del usuario
-            String rol = rs.getString("rol");
+            // Obtener el rol del usuario usando el nombre correcto de la columna
+            String rol = rs.getString("rol_usuarios"); // Asegúrate de usar el nombre correcto de la columna
             
             // Redireccionar a diferentes páginas según el rol del usuario
             if (rol.equals("admin")) {
@@ -38,15 +41,13 @@
                 response.sendRedirect("error.jsp");
             }
         } else {
-            // Si las credenciales no son inválidas, muestra un mensaje de error y redirecciona al formulario de inicio de sesión nuevamente
+            // Si las credenciales no son válidas, muestra un mensaje de error
             out.println("<p style='color:red;'>Credenciales inválidas</p>");
-
-            //response.sendRedirect("ingresar.html");
         }
 
         // Cerrar la conexión con la base de datos
         con.close();
     } catch (Exception e) {
-        out.println(e);
+        out.println("<p style='color:red;'>Error: " + e.getMessage() + "</p>");
     }
 %>
