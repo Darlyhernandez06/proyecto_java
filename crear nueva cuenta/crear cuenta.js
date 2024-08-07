@@ -1,4 +1,4 @@
-// IMPORTANCIONES
+// IMPORTACIONES
 import correoelectronico from "../modulos/modulo_correo.js";
 import sololetras from "../modulos/modulo_sololetras.js";
 import solonumeros from "../modulos/modulo_solonumeros.js";
@@ -22,15 +22,14 @@ const confirmarContraseña = document.querySelector('#password_confirmacion');
 const descripcion = document.querySelector('#descripcion_usuarios');
 
 // Se añade un listener al formulario que llama a la función validar cuando se intenta enviar el formulario.
-/*$formulario.addEventListener("submit", (event) => {
+$formulario.addEventListener("submit", (event) => {
     if (!is_valid(event, "form [required]"))  {
         event.preventDefault(); // Prevenir el envío si la validación falla
         alert("Validación fallida");
     } else {
         alert("Validación exitosa");
     }
-});*/
-
+});
 
 // Se añade un listener para el evento keyup en cada uno de los campos. Cuando se suelta una tecla, se llama a la función remover para verificar el estado del campo.
 [nombres, apellidos, correo, telefono, direccion, contraseña, confirmarContraseña, descripcion].forEach(input => {
@@ -40,7 +39,7 @@ const descripcion = document.querySelector('#descripcion_usuarios');
 });
 
 // Confirmación de contraseña
-$formulario.addEventListener("submit", () => {
+confirmarContraseña.addEventListener("blur", () => {
     // Verifica que las contraseñas ingresadas coincidan
     if (contraseña.value === confirmarContraseña.value) {
         // Elimina la clase error si las contraseñas coinciden
@@ -49,10 +48,20 @@ $formulario.addEventListener("submit", () => {
         // Añade la clase correcto
         contraseña.classList.add("correcto");
         confirmarContraseña.classList.add("correcto");
+        // Elimina el mensaje de error si las contraseñas coinciden
+        const existingErrorMessage = document.querySelector(".error-message");
+        if (existingErrorMessage) {
+            existingErrorMessage.remove(); // Elimina el mensaje de error existente
+        }
     } else {
-        event.preventDefault();
-        // Muestra una alerta si las contraseñas no coinciden
-        alert('Las contraseñas no coinciden');
+        // Verifica si ya hay un mensaje de error visible
+        if (!document.querySelector(".error-message")) {
+            // Crea un nuevo elemento div para mostrar el mensaje de error
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message"); // Añade una clase para estilizar el mensaje
+            errorMessage.textContent = 'Las contraseñas no coinciden'; // Establece el texto del mensaje
+            confirmarContraseña.parentElement.appendChild(errorMessage); // Añade el mensaje de error al DOM
+        }
         // Agrega la clase error a los campos de contraseña
         contraseña.classList.add("error");
         confirmarContraseña.classList.add("error");
@@ -60,9 +69,8 @@ $formulario.addEventListener("submit", () => {
         contraseña.classList.remove("correcto");
         confirmarContraseña.classList.remove("correcto");
     }
-
-   
 });
+
 
 // Validaciones específicas
 

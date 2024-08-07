@@ -533,6 +533,12 @@ textarea::placeholder {
     font-size: 15px; /* Tamaño de la fuente */
 }
 
+.error-message{
+    color: #bd0003;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
 .error {
     border: solid 2px #bd0003;
 }
