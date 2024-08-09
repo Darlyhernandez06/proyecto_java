@@ -39,7 +39,7 @@
 
             // Preparar la consulta SQL para insertar el nuevo usuario
             // Define la consulta SQL para insertar los datos del usuario en la base de datos
-            String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, password_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, password_confirmacion, id_rol_usuarios_fk, confirmado, ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
+            String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, password_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, password_confirmacion, id_rol_usuarios_fk, confirmado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
             PreparedStatement pstmt = con.prepareStatement(query);
 
             // Establecer los valores de la consulta
