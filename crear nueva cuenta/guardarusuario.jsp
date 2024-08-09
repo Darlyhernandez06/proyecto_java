@@ -51,7 +51,6 @@
             pstmt.setString(6, telefono); 
             pstmt.setString(7, descripcion); 
             pstmt.setString(8, confirmacion);
-            pstmt.setString(9, rol); 
 
             // Ejecutar la consulta
             // Ejecuta la consulta para insertar los datos en la base de datos
