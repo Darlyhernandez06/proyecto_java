@@ -39,11 +39,11 @@
         if (rs.next()) {
             // Obtener el rol del usuario usando el nombre correcto de la columna
             // Extrae el rol del usuario de los resultados de la consulta
-            String rol = rs.getString("rol_usuarios");
+            String rol = rs.getString("id_rol_usuarios_fk");
 
             // Redireccionar a diferentes páginas según el rol del usuario
             // Envía al usuario a la página correspondiente según su rol
-            if (rol.equals("admin")) {
+            if (rol.equals("administrador")) {
                 response.sendRedirect("../vistas/admin/usuarios/listar.jsp");
             } else if (rol.equals("cliente")) {
                 response.sendRedirect("../vistas/cliente/principal/principal.jsp");
