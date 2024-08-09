@@ -17,6 +17,7 @@
     String direccion = request.getParameter("dirrec_usuarios");
     String telefono = request.getParameter("telefono_usuarios");
     String descripcion = request.getParameter("descripcion_usuarios");
+    String rol = request.getParameter("id_rol_usuarios_fk");
 
     // Definir las credenciales de la base de datos
     // Configura la URL de conexión y las credenciales de acceso a la base de datos
@@ -38,7 +39,7 @@
 
             // Preparar la consulta SQL para insertar el nuevo usuario
             // Define la consulta SQL para insertar los datos del usuario en la base de datos
-            String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, password_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, password_confirmacion, confirmado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)";
+            String query = "INSERT INTO tb_usuarios (nombre_usuarios, apellido_usuarios, correo_elec_usuarios, password_usuarios, dirrec_usuarios, telefono_usuarios, descripcion_usuarios, password_confirmacion, confirmado, id_rol_usuarios_fk) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, 1)";
             PreparedStatement pstmt = con.prepareStatement(query);
 
             // Establecer los valores de la consulta
@@ -49,7 +50,8 @@
             pstmt.setString(5, direccion); 
             pstmt.setString(6, telefono); 
             pstmt.setString(7, descripcion); 
-            pstmt.setString(8, confirmacion); 
+            pstmt.setString(8, confirmacion);
+            pstmt.setString(9, rol); 
 
             // Ejecutar la consulta
             // Ejecuta la consulta para insertar los datos en la base de datos
