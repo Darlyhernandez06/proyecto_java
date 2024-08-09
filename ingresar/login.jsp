@@ -45,7 +45,7 @@
             // Envía al usuario a la página correspondiente según su rol
             if (rol.equals("2")) {
                 response.sendRedirect("../vistas/admin/usuarios/listar.jsp");
-            } else if (rol.equals("cliente")) {
+            } else if (rol.equals("1")) {
                 response.sendRedirect("../vistas/cliente/principal/principal.jsp");
             } else {
                 // En caso de que el rol no esté definido, redireccionar a una página de error o mostrar un mensaje
